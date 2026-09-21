@@ -1,7 +1,37 @@
+
+# Environment files
 .env
-backup.sql
+.env.local
+.env.*.local
+
+# Python
 __pycache__/
-*.pyc
-.venv/
+*.py[cod]
+*$py.class
 venv/
+env/
+.venv/
+*.egg-info/
+
+# Logs
+*.log
+logs/
+
+# Docker
+.docker/
+docker-compose.override.yml
+
+# Kubernetes
+*.kubeconfig
+kubeconfig
+
+# OS files
+.DS_Store
+Thumbs.db
+*.swp
+*~
+
+# IDE
 .vscode/
+.idea/
+*.iml
