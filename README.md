@@ -9,6 +9,25 @@ The purpose of this project is to demonstrate hands-on experience with **contain
 
 ---
 
+## 📘 Detailed User Guide
+
+For a complete step-by-step setup guide (beginner friendly), see [USER_GUIDE.md](./USER_GUIDE.md).
+
+## 📚 Documentation
+
+This project has three main documentation files:
+
+| Document | Description |
+|----------|-------------|
+| **[README.md](./README.md)** | Project overview, architecture and quick start |
+| **[USER_GUIDE.md](./USER_GUIDE.md)** | Complete end-to-end setup guide (beginner friendly) |
+| **[ISSUES.md](./ISSUES.md)** | Real issues faced during deployment and how I fixed them |
+
+---
+
+
+
+
 ## 📐 Architecture
 
 ```text
