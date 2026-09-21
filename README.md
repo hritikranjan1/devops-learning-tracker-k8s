@@ -22,7 +22,7 @@ This project has three main documentation files:
 | **[README.md](./README.md)** | Project overview, architecture and quick start |
 | **[USER_GUIDE.md](./USER_GUIDE.md)** | Complete end-to-end setup guide (beginner friendly) |
 | **[ISSUES.md](./ISSUES.md)** | Real issues faced during deployment and how I fixed them |
-
+| **[INTERVIEW_QA.md](./INTERVIEW_QA.md)** | Interview questions and answers based on this project |
 ---
 
 
