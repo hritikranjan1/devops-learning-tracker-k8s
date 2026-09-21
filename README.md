@@ -23,8 +23,8 @@ This project has three main documentation files:
 | **[USER_GUIDE.md](./USER_GUIDE.md)** | Complete end-to-end setup guide (beginner friendly) |
 | **[ISSUES.md](./ISSUES.md)** | Real issues faced during deployment and how I fixed them |
 | **[INTERVIEW_QA.md](./INTERVIEW_QA.md)** | Interview questions and answers based on this project |
-
 | **[WORKFLOW.md](./WORKFLOW.md)** | Complete Kubernetes workflow — how all resources connect |
+| **[ARCHITECTURE.md](./ARCHITECTURE.md)** | Deep dive into system design and design decisions |
 ---
 
 
