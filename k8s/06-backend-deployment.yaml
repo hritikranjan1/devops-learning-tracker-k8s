@@ -1,0 +1,67 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: web
+  namespace: devtrack
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: web
+  template:
+    metadata:
+      labels:
+        app: web
+    spec:
+      initContainers:
+        - name: wait-for-mysql
+          image: mysql:8.4
+          command:
+            - sh
+            - -c
+            - |
+              until mysqladmin ping -h db -u root -p"$MYSQL_ROOT_PASSWORD" --silent; do
+                echo "waiting for mysql..."; sleep 3;
+              done
+          env:
+            - name: MYSQL_ROOT_PASSWORD
+              valueFrom:
+                secretKeyRef: { name: db-secret, key: MYSQL_ROOT_PASSWORD }
+      containers:
+        - name: web
+          image: hritikranjan1/devops-learning-tracker-backend:1.0
+          imagePullPolicy: IfNotPresent                                 # 👈 YAHAN
+          ports:
+            - containerPort: 5000
+          env:
+            - name: DB_HOST
+              valueFrom:
+                configMapKeyRef: { name: db-config, key: DB_HOST }
+            - name: DB_NAME
+              valueFrom:
+                configMapKeyRef: { name: db-config, key: DB_NAME }
+            - name: DB_USER
+              valueFrom:
+                secretKeyRef: { name: db-secret, key: MYSQL_USER }
+            - name: DB_PASSWORD
+              valueFrom:
+                secretKeyRef: { name: db-secret, key: MYSQL_PASSWORD }
+          resources:
+            limits:
+              memory: "256Mi"
+              cpu: "300m"
+            requests:
+              memory: "128Mi"
+              cpu: "100m"
+          readinessProbe:
+            httpGet:
+              path: /api/health
+              port: 5000
+            initialDelaySeconds: 15
+            periodSeconds: 5
+          livenessProbe:
+            httpGet:
+              path: /api/health
+              port: 5000
+            initialDelaySeconds: 40
+            periodSeconds: 15
